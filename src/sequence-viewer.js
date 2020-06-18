@@ -648,7 +648,9 @@ var Sequence = (function () {
     function getSelectedText(document) {
       root = document;
       var text = window.getSelection().toString().replace(/\s+/g, "");
-      var selection = root.getSelection();
+      var selection = root.getSelection
+        ? root.getSelection()
+        : window.getSelection();
       var element = $(divID + " .fastaSeq")[0];
       var caretOffset = 0;
       var seqText = $(divID + " .fastaSeq").text();
